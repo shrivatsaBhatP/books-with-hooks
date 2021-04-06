@@ -1,0 +1,11 @@
+.nav {
+  padding: 1rem;
+}
+
+.nav .nav-link {
+  color: aliceblue;
+}
+
+.nav .nav-link.active {
+  border-bottom: white 1px solid;
+}

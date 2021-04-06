@@ -1,0 +1,13 @@
+@import url('../../../styles/settings/colors.css');
+
+.header {
+  background-color: var(--color-header-bg);
+  width: 100%;
+  height: 6vh;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
