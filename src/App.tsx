@@ -1,7 +1,22 @@
-import styles from './App.module.scss'
+import React from 'react';
+import './styles/index.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Searchpage from './pages/Searchpage';
 
-export const App = () => {
+const App: React.FC = () => {
   return (
-    <h1 className={styles.clr}>React TypeScript Webpack Starter Template</h1>
-  )
-}
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/search">
+          <Searchpage />
+        </Route>
+      </Switch>
+    </Router>
+  );
+};
+
+export default App;
