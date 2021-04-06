@@ -1,0 +1,14 @@
+.table-body {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(16ch, 1fr)) 10ch;
+  gap: 0.3rem 1ch;
+}
+
+.table-body .table-header {
+  text-align: center;
+  box-shadow: 0px 2px 0px var(--color-shadow);
+}
+
+.table-body .table-row {
+  text-align: left;
+}
