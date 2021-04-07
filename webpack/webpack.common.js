@@ -1,5 +1,5 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, '..', './src/index.tsx'),
@@ -19,20 +19,22 @@ module.exports = {
       },
       {
         test: /\.(sa|sc|c)ss$/,
-        use: ['style-loader',
+        use: [
+          'style-loader',
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               modules: {
-                localIdentName: "[name]_[local]_[hash:base64]", // custom class name format
+                localIdentName: '[name]_[local]_[hash:base64]', // custom class name format
                 auto: /\.module\.\w+$/i, // custom auto enable CSS Module for "*.cmod.css" format
               },
-              sourceMap: true
-            }
+              sourceMap: true,
+            },
           },
           {
-            loader: "sass-loader"
-          }],
+            loader: 'sass-loader',
+          },
+        ],
       },
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
@@ -54,4 +56,7 @@ module.exports = {
     }),
   ],
   stats: 'errors-only',
-}
+  devServer: {
+    historyApiFallback: true,
+  },
+};
