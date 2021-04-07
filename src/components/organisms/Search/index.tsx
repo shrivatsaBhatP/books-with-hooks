@@ -4,22 +4,37 @@ import { searchBooks } from '../../../api/api';
 import Table from '../../molecules/Table';
 import Text from '../../atoms/Text';
 import SearchBox from '../../molecules/SearchBox';
+import Loader from '../../atoms/Loader';
 
 export default function Search() {
+  const [status, setStatus] = useState({ loading: false, error: false });
+  const [search, setSearch] = useState<string>('');
   const [results, setResults] = useState<Object[]>();
-
   const inputRef = useRef<HTMLInputElement | null>(null);
+
   useEffect(() => {
     if (inputRef.current !== null) {
       inputRef.current.focus();
     }
   }, [inputRef]);
 
+  useEffect(() => {
+    setStatus({ ...status, loading: true });
+    const handleCallback = () => {
+      searchBooks(search).then((response) => {
+        console.log(response.docs);
+        setResults(response.docs);
+        setStatus({ ...status, loading: false });
+      });
+    };
+    const timeout = setTimeout(handleCallback, 1000);
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [search]);
+
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    searchBooks(event.target.value).then((response) => {
-      console.log(response);
-      setResults(response.docs);
-    });
+    setSearch(event.target.value);
   };
 
   return (
@@ -30,7 +45,7 @@ export default function Search() {
         placeholder="Search"
         ref={inputRef}
       />
-
+      {status.loading && <Loader />}
       <Text type="h1">Search Results</Text>
       <Table>
         {(results || []).map((book: any) => (

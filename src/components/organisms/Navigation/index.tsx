@@ -6,9 +6,9 @@ import classes from './Navigation.module.css';
 const Navigation = () => {
   return (
     <div>
-      {navLinks.map((link) => {
+      {navLinks.map((link, idx) => {
         return (
-          <span className={classes['nav']}>
+          <span key={idx} className={classes['nav']}>
             <NavLink
               exact
               className={classes['nav-link']}
