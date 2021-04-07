@@ -1,6 +1,7 @@
 @import url('../../../styles//index.css');
 
 .table-body {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(2, minmax(16ch, 1fr)) 10ch;
   gap: 0.3rem 1ch;

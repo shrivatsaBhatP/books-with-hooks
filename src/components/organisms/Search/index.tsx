@@ -18,15 +18,18 @@ export default function Search() {
     }
   }, [inputRef]);
 
-  useEffect(() => {
+  const handleCallback = () => {
     setStatus({ ...status, loading: true });
-    const handleCallback = () => {
-      searchBooks(search).then((response) => {
-        console.log(response.docs);
+    searchBooks(search)
+      .then((response) => {
         setResults(response.docs);
+      })
+      .finally(() => {
         setStatus({ ...status, loading: false });
       });
-    };
+  };
+
+  useEffect(() => {
     const timeout = setTimeout(handleCallback, 1000);
     return () => {
       clearTimeout(timeout);
@@ -44,6 +47,7 @@ export default function Search() {
         onChange={handleSearch}
         placeholder="Search"
         ref={inputRef}
+        onClick={() => handleCallback()}
       />
       {status.loading && <Loader />}
       <Text type="h1">Search Results</Text>

@@ -1,3 +1,10 @@
+export interface ButtonProps {
+  children: React.ReactChild | React.ReactChild[] | React.ReactNode;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  backgroundColor?: string;
+  type: 'button' | 'submit' | 'reset';
+  btnStyle?: 'primary' | 'secondary';
+}
 export interface InputProps {
   id?: string;
   type?: 'text';
@@ -42,5 +49,5 @@ export interface TableProps {
 
 export interface SearchProps extends InputProps {
   label?: string;
-  onClick?: React.ChangeEventHandler<HTMLInputElement>;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
