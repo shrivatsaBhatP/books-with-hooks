@@ -1,9 +1,8 @@
-import React, { Children } from 'react';
-import { TableProps } from '../../../common/interface';
+import React from 'react';
 import Text from '../../atoms/Text';
 import classes from './Table.module.css';
 
-const Table: React.FC<TableProps> = ({ children }) => {
+const Table: React.FC = ({ children }) => {
   return (
     <div className={classes['table-body']}>
       <div className={classes['table-header']}>

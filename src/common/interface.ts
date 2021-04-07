@@ -20,7 +20,25 @@ export interface TextProps {
   color?: string;
 }
 
-export interface TableProps {}
+export interface TRowProps {
+  rowData: (string | number)[];
+  columnType?: 'td' | 'th';
+}
+
+export interface THeadProps {
+  headerData: (string | number)[];
+}
+
+export interface TBodyProps {
+  bodyData: Array<string | number>[];
+}
+
+export interface TDataProps {
+  type?: 'td' | 'th';
+}
+export interface TableProps {
+  data: { header: (string | number)[]; body: Array<string | number>[] };
+}
 
 export interface SearchProps extends InputProps {
   label?: string;

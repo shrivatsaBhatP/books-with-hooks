@@ -1,0 +1,21 @@
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tr:nth-child(even) {
+  background-color: #f2f2f280;
+}
+
+.tr:hover {
+  background-color: #dddddd80;
+}
+
+.thead {
+  background-color: rgb(233, 233, 233);
+  border-bottom: #000 1px solid;
+}
+
+.th {
+  text-align: center;
+}
