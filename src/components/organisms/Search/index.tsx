@@ -47,7 +47,6 @@ export default function Search() {
         onChange={handleSearch}
         placeholder="Search"
         ref={inputRef}
-        onClick={() => handleCallback()}
       />
       {status.loading && <Loader />}
       <Text type="h1">Search Results</Text>
