@@ -19,10 +19,11 @@ export default function Search() {
   }, [inputRef]);
 
   const handleCallback = () => {
+    if (search === '' || search.length == 0) return;
     setStatus({ ...status, loading: true });
     searchBooks(search)
       .then((response) => {
-        setResults(response.docs);
+        setResults(response?.docs);
       })
       .finally(() => {
         setStatus({ ...status, loading: false });
