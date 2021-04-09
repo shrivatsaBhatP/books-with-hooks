@@ -51,3 +51,7 @@ export interface SearchProps extends InputProps {
   label?: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
+
+export interface HeaderProps {
+  logo?: string;
+}

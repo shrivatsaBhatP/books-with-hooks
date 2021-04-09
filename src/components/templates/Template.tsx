@@ -5,12 +5,13 @@ const Welcome = lazy(() => import('../organisms/Welcome'));
 import Loader from '../atoms/Loader';
 
 interface TemplatePRops {
+  headerLogo: string;
   body: 'welcome' | 'search';
 }
 const Template: React.FC<TemplatePRops> = (props) => {
   return (
     <React.Fragment>
-      <Header />
+      <Header logo={props.headerLogo} />
       <Suspense fallback={<Loader />}>
         {{ welcome: <Welcome />, search: <Search /> }[props.body]}
       </Suspense>
