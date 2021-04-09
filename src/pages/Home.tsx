@@ -1,15 +1,7 @@
-import React from 'react';
-import Text from '../components/atoms/Text';
-import Header from '../components/organisms/Header';
-import Welcome from '../components/organisms/Welcome';
+import Template from '../components/templates/Template';
 
 const Home = () => {
-  return (
-    <>
-      <Header />
-      <Welcome />
-    </>
-  );
+  return <Template body="welcome" />;
 };
 
 export default Home;

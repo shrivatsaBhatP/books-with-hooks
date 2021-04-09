@@ -1,14 +1,7 @@
-import React from 'react';
-import Header from '../components/organisms/Header';
-import Search from '../components/organisms/Search';
+import Template from '../components/templates/Template';
 
 const Searchpage = () => {
-  return (
-    <>
-      <Header />
-      <Search />
-    </>
-  );
+  return <Template body="search" />;
 };
 
 export default Searchpage;
